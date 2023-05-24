@@ -20,9 +20,126 @@
         color: grey;
     }
     .container {
+        margin-top: 5vw;
+        margin-right: 10vw;
         display: grid;
-        grid-auto-rows: 2fr 1fr 3fr;
         justify-items: center;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas:
+            "headcontainer subcontainer1"
+            "headcontainer subcontainer2";
+    }
+    .headContainer {
+        grid-area: headcontainer;
+    }
+    .subContainer1 {
+        grid-area: subcontainer1;
+        justify-items: start;
+        align-self: center;
+        justify-self: left;
+    }
+    .subContainer2 {
+        grid-area: subcontainer2;
+        justify-items: start;
+        align-self: center;
+        justify-self: left;
+    }
+    #imgs1 {
+        width: 50px;
+        height: 50px;
+        float: left;
+        margin-right: 10px;
+    }
+    #imgs2 {
+        width: 40px;
+        height: 40px;
+        margin-left: 5px;
+        margin-right: 15px;
+        float: left;
+    }
+    #inlineText {
+        width: 150px;
+        margin-top: 1px;
+    }
+    .mainContainer {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        margin-top: 5vw;
+        margin-left: 15vw;
+        padding: 10px;
+    }
+    .modalBox {
+        border-radius: 10%;
+        width: 400px; height: 500px;
+        flex: 0 0 auto;
+        margin-right: 20px;
+        transition: all 1s;
+    }
+    #introduce, #project, #company {
+        background-color: black;
+        padding-top: 10px;
+    }
+    #study {
+        background-color: white;
+    }
+    #colorWhite {
+        color: white;
+        background-color: transparent;
+        margin-left: 25px;
+    }
+    #colorBlack {
+        color: black;
+        background-color: transparent;
+        margin-left: 25px;
+    }
+    #cat {
+        width: 250px; height: 250px;
+        border-radius: 50%;
+        float: right;
+        margin-top: 90px;
+        margin-right: 20px;
+    }
+    .modalBox:hover {
+        transform: scale(1.03);
+    }
+    #businu {
+        width: 150px; height: 300px;
+        margin-top: 20px;
+        margin-left: 32px;
+    }
+    .modalWindow1 { /* 모달 창 띄워졌을 때 바깥 영역 */
+        width: 100%; height: 100%;
+        z-index: 1;
+        left: 0; top: 0;
+        position: fixed;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        background: rgba(0,0,0,0.5);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(1.5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        overflow: auto;
+
+        display: none;
+    }
+    .modalIntroduce {
+        background: rgba(255,255,255,0.70);
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 13.5px );
+        -webkit-backdrop-filter: blur( 13.5px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+        margin: auto;
+        width: 70%;
+        height: 50%;
+        margin-top: 10vw;
+        padding: 10px;
     }
 </style>
 <body>
@@ -31,13 +148,85 @@
             <h1 class="inlineHead">박가연. </h1><h1 class="inlineHead" id="subColor">살면서 처음으로</h1>
             <h1 id="subColor">무소속인 개발자.</h1>
         </div>
-        <!-- item은 왼쪽 정렬로 -->
-        <div class="subContainer">
-            이메일 | 깃허브
+        <div class="subContainer1">
+            <div><a href="pagaye@naver.com"><img src="img/email.png" id="imgs1"></a></div>
+            <div id="inlineText"><strong>이메일로<br>연락주세요.</strong></div>
         </div>
-        <div class="mainContainer">
-            내가 했던 컨텐츠
+        <div class="subContainer2">
+            <div><a href="https://github.com/gayeonP"><img src="img/github.png" id="imgs2"></a></div>
+            <div id="inlineText"><strong>맞팔<br>하실래요?</strong></div>
         </div>
     </div>
+    <div class="mainContainer">
+        <div class="modalBox" id="introduce">
+            <h1 id="colorWhite">안녕하세요?</h1>
+            <h3 id="colorWhite">저를 소개합니다.</h3>
+            <img id="cat" src="img/cat.jpeg">
+        </div>
+        <div class="modalBox" id="project">
+            <h1 id="colorWhite">BusInU 🚌 = 3</h1>
+            <h3 id="colorWhite">시각장애인을 위한 버스 알림이 프로젝트</h3>
+            <img id="businu" src="img/businu1.png">
+            <img id="businu" src="img/businu2.png">
+        </div>
+        <div class="modalBox" id="study">
+            <h1 id="colorBlack">자기개발 🪨</h1>
+            <h3 id="colorBlack">살면서 한 이모저모..</h3>
+        </div>
+        <div class="modalBox" id="company">
+            <h1 id="colorWhite">카네비모빌리티 🏢</h1>
+            <h3 id="colorWhite">라이다 뷰어 개발 (20.12 ~ 21.08 9개월)</h3>
+        </div>
+    </div>
+    <div class="modalWindow1">
+        <div class="modalIntroduce">
+            <h1>박가연. 클라우드 개발자</h1>
+            <h2>☁️취미: 게임(FPS)</h2>
+            <h2>☁️MBTI: ENTP</h2>
+            <h2>☁️최근 고민: 오늘 점심 뭐 먹지</h2>
+            <h2>☁️: 돈이 되는 코드는 어렵군요..</h2>
+        </div>
+    </div>
+    <div class="modalWindow2">
+        <div class="modalProject"></div>
+        
+    </div>
+    <div class="modalStudy">
+
+    </div>
+    <div class="modalCompany">
+
+    </div>
 </body>
+<script>
+    let introduce = document.querySelector(".modalWindow1");
+    let project = document.querySelector(".modalWindow2");
+    let study = document.querySelector(".modalWindow3");
+    let company = document.querySelector(".modalWindow4");
+
+    document.querySelector("#introduce").onclick = function() {
+        introduce.style.display = "block";
+    }
+    document.querySelector("#project").onclick = function() {
+        project.style.display = "block";
+    }
+    document.querySelector("#study").onclick = function() {
+        study.style.display = "block";
+    }
+    document.querySelector("#company").onclick = function() {
+        company.style.display = "block";
+    }
+    introduce.onclick = function() {
+        introduce.style.display = "none";
+    }
+    project.onclick = function() {
+        project.style.display = "none";
+    }
+    study.onclick = function() {
+        study.style.display = "none";
+    }
+    company.onclick = function() {
+        company.style.display = "none";
+    }
+</script>
 </html>
