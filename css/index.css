@@ -1,0 +1,212 @@
+* {
+    font-family: 'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
+    background-color: #f8f9fa;
+}
+.inlineHead {
+    display: inline;
+}
+#subColor {
+    color: grey;
+}
+.container {
+    margin-top: 5vw;
+    margin-right: 10vw;
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+        "headcontainer subcontainer1"
+        "headcontainer subcontainer2";
+}
+.headContainer {
+    grid-area: headcontainer;
+}
+.subContainer1 {
+    grid-area: subcontainer1;
+    justify-items: start;
+    align-self: center;
+    justify-self: left;
+}
+.subContainer2 {
+    grid-area: subcontainer2;
+    justify-items: start;
+    align-self: center;
+    justify-self: left;
+}
+#imgs1 {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: 10px;
+}
+#imgs2 {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 15px;
+    float: left;
+}
+#inlineText {
+    width: 150px;
+    margin-top: 1px;
+}
+.mainContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-top: 0vw;
+    margin-left: 15vw;
+    padding: 10px;
+}
+.smalltalk {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-top: 2vw; margin-bottom: 0;
+    margin-left: 17vw;
+    padding: 0px;
+}
+.modalBox {
+    border-radius: 10%;
+    width: 400px; height: 500px;
+    flex: 0 0 auto;
+    margin-right: 20px;
+    transition: all 1s;
+}
+#introduce, #project, #company {
+    background-color: black;
+    padding-top: 10px;
+}
+#study {
+    background-color: white;
+}
+#colorWhite {
+    color: white;
+    background-color: transparent;
+    margin-left: 25px;
+}
+#colorBlack {
+    color: black;
+    background-color: transparent;
+    margin-left: 25px;
+}
+#cat {
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    float: right;
+    margin-top: 90px;
+    margin-right: 20px;
+}
+.modalBox:hover {
+    transform: scale(1.03);
+}
+#businu {
+    width: 150px; height: 300px;
+    margin-top: 20px;
+    margin-left: 32px;
+}
+.modalWindow1, .modalWindow2, .modalWindow3, .modalWindow4 { /* 모달 창 띄워졌을 때 바깥 영역 */
+    width: 100%; height: 100%;
+    z-index: 1;
+    left: 0; top: 0;
+    position: fixed;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    overflow: auto;
+
+    display: none;
+}
+.modalIntroduce {
+    background: rgba(255,255,255,0.80);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    margin: auto;
+    width: 70%;
+    height: 70%;
+    margin-top: 5vw;
+    padding: 10px;
+}
+#colorIntroduce {
+    background-color: transparent;
+}
+#fakedeveloper {
+    width: 260px; height: 260px;
+    display: block;
+    margin: auto;
+    margin-top: 70px;
+}
+#comp {
+    background-color: transparent;
+    text-align: center;
+    font-size: 200px;
+}
+#introImg {
+    width: 100%; height: 80%;
+    display: table-cell;
+    vertical-align: middle;
+    background-color: transparent;
+    opacity: 0.5;
+}
+.modalProject {
+    background: rgba(255,255,255,0.70);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    margin: auto;
+    width: 46%;
+    height: 120%;
+    margin-top: 5vw;
+    padding: 10px;
+}
+#post {
+    width: auto; height: auto;
+    margin: 0 auto;
+}
+.modalStudy {
+    background: rgba(255,255,255,0.70);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    margin: auto;
+    width: 46%;
+    height: 55%;
+    margin-top: 5vw;
+    padding: 10px;
+}
+.modalCompany {
+    background: rgba(255,255,255,0.70);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    margin: auto;
+    width: 46%;
+    height: 55%;
+    margin-top: 5vw;
+    padding: 10px;
+}
+#lidar {
+    margin: 0 auto;
+    width: auto; height: auto;
+    display: block;
+}
